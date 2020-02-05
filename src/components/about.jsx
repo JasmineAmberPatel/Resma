@@ -1,5 +1,7 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
+import Contact from './contact';
+import InstagramEmbed from 'react-instagram-embed';
 
 function About() {
   return (
@@ -16,15 +18,27 @@ function About() {
         I love weightlifting, yoga, tai chi, walking and cakes.
         </p>
         <br/>
+        <Contact/>
+        <br/>
         <p className="Paragraph">Connect with me on LinkedIn:</p>
-        <br />
         <div className="social-icons">
                 <SocialIcon url="https://www.linkedin.com/in/resma-patel-33a6aa138/" network="linkedin" target="_blank" style={{ height: 35, width: 35, margin: 5 }} bgColor="#272727" fgColor="#ffffff" />
             </div>
-
       </div>
+      <br/>
       <div className="resma">
-      <img className="resma_image" src={require('../Images/resma.jpg')} alt="resma"></img>
+      <InstagramEmbed className="Instagram resma_image"
+        url='https://www.instagram.com/p/BoRVUGTF619/?utm_source=ig_web_copy_link'
+        maxWidth={320}
+        hideCaption={true}
+        containerTagName='div'
+        protocol=''
+        injectScript
+        onLoading={() => { }}
+        onSuccess={() => { }}
+        onAfterRender={() => { }}
+        onFailure={() => { }}
+      />
       </div>
     </div>
   );
