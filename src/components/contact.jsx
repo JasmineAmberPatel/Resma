@@ -56,7 +56,7 @@ render() {
         <input onChange={(e) => this.setState({ email: e.target.value })} name="email" class="message-email" type="email" placeholder="your@email.com" required value={this.state.email} />
         <br/>
         <div className="button--container">
-          <button type="submit" className="btn btn-dark">{this.state.buttonText}</button>
+          <button type="submit" className="btn btn-dark Paragraph">{this.state.buttonText}</button>
         </div>
       </form>
     </div>

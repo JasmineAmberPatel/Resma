@@ -1,5 +1,6 @@
 @import './about.scss';
 @import './contact.scss';
+@import './instagram.scss';
 
 *,
   *::after,
@@ -23,15 +24,18 @@
     font-size: 3.5rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #5196e9;
 }
 
 .Subtitle {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
 }
 
 .Paragraph {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+}
+
+.btn-dark {
+  background-color: #272727;
 }
 
 @media (max-width: 800px) {
@@ -40,8 +44,6 @@
   }
   .Title {
     font-size: 3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #5196e9;
+    text-align: center;
 }
 }
