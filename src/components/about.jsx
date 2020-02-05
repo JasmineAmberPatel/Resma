@@ -20,9 +20,12 @@ function About() {
         <br/>
         <Contact/>
         <br/>
-        <p className="Paragraph">Connect with me on LinkedIn:</p>
+        <p className="Paragraph">Connect with me on Social Media:</p>
         <div className="social-icons">
                 <SocialIcon url="https://www.linkedin.com/in/resma-patel-33a6aa138/" network="linkedin" target="_blank" style={{ height: 35, width: 35, margin: 5 }} bgColor="#272727" fgColor="#ffffff" />
+                <SocialIcon url="https://twitter.com/Resma100" network="twitter" target="_blank" style={{ height: 35, width: 35, margin: 5 }} bgColor="#272727" fgColor="#ffffff" />
+                <SocialIcon url="https://www.instagram.com/resmapatel/" network="instagram" target="_blank" style={{ height: 35, width: 35, margin: 5 }} bgColor="#272727" fgColor="#ffffff" />
+                <SocialIcon url="https://www.facebook.com/resma100" network="facebook" target="_blank" style={{ height: 35, width: 35, margin: 5 }} bgColor="#272727" fgColor="#ffffff" />
             </div>
       </div>
       <br/>
