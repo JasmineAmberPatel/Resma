@@ -36,7 +36,7 @@
   width: 350px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     .About_Container {
       height: 100%;
       margin-right: 0px;
@@ -54,6 +54,8 @@
     .resma {
       margin-top: 2rem;
       width: 100%;
+      display: flex;
+      align-items: center;
     }
     .social-icons {
       display: flex;
