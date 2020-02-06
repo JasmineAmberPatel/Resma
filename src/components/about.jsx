@@ -1,6 +1,7 @@
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 import Contact from './contact';
+import InstagramEmbed from 'react-instagram-embed';
 
 function About() {
   return (
@@ -28,7 +29,18 @@ function About() {
       </div>
       <br/>
       <div className="resma">
-        <img className="resma_image" src={require('../Images/resma.jpg')} alt="resma"></img>
+      <InstagramEmbed className="Instagram"
+        url='https://www.instagram.com/p/BoRVUGTF619/?utm_source=ig_web_copy_link'
+        maxWidth={320}
+        hideCaption={true}
+        containerTagName='div'
+        protocol=''
+        injectScript
+        onLoading={() => { }}
+        onSuccess={() => { }}
+        onAfterRender={() => { }}
+        onFailure={() => { }}
+      />
       </div>
     </div>
   );

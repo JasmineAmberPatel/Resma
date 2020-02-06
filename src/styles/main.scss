@@ -34,8 +34,12 @@
     font-size: 1.5rem;
 }
 
-.btn-dark {
+.button {
   background-color: #272727;
+  color: #ffffff;
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 
 @media (max-width: 800px) {
@@ -45,5 +49,8 @@
   .Title {
     font-size: 3rem;
     text-align: center;
+}
+  .button {
+    width: 100%;
 }
 }

@@ -55,4 +55,17 @@
       margin-top: 2rem;
       width: 100%;
     }
+    .social-icons {
+      display: flex;
+      justify-content: space-evenly;
+  }
+  .btn {
+    display: inline-flex;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    justify-self: center;
+    width: 100%;
+    text-align: center!important;
+  }
   }

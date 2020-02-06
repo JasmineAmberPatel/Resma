@@ -7,4 +7,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    width: 100%;
+}
+
+.message-input {
+    height: 3rem;
+}
+
+.message-name {
+    height: 3rem;
+}
+
+.message-email {
+    height: 3rem;
 }
