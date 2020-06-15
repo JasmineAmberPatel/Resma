@@ -14,7 +14,7 @@ formSubmit = (e) => {
   e.preventDefault()
 
   this.setState({
-      buttonText: '...sending'
+      buttonText: '...Sending'
   })
 
   let data = {
@@ -46,13 +46,13 @@ render() {
     <div className="Contact">
       <h2 className="Subtitle">Get In Touch:</h2>
       <form className="form-group" onSubmit={(e) => this.formSubmit(e)}>
-        <label class="message Paragraph" htmlFor="message-input">Your Message</label>
+        <label className="message Paragraph" htmlFor="message-input">Your Message</label>
         <textarea onChange={e => this.setState({ message: e.target.value })} name="message" class="message-input" type="text" placeholder="Please write your message here" value={this.state.message} required />
         <br/>
-        <label class="message-name Paragraph" htmlFor="message-name">Your Name</label>
+        <label className="message-name Paragraph" htmlFor="message-name">Your Name</label>
         <input onChange={e => this.setState({ name: e.target.value })} name="name" class="message-name" type="text" placeholder="Your Name" value={this.state.name} />
         <br/>
-        <label class="message-email Paragraph" htmlFor="message-email">Your Email</label>
+        <label className="message-email Paragraph" htmlFor="message-email">Your Email</label>
         <input onChange={(e) => this.setState({ email: e.target.value })} name="email" class="message-email" type="email" placeholder="your@email.com" required value={this.state.email} />
         <br/>
         <div className="button--container">

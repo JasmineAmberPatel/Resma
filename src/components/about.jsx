@@ -5,7 +5,7 @@ import InstagramEmbed from 'react-instagram-embed';
 
 function About() {
   return (
-    <div className="About_Container">
+    <div className="About_Container" id="Home">
       <div className="About">
       <h1 className="Title">Resma Patel Charity Bid Writer</h1>
         <br/>
