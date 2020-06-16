@@ -23,7 +23,7 @@ formSubmit = (e) => {
       message: this.state.message
   }
   
-  axios.post('API_URI', data)
+  axios.post('https://resma.now.sh/', data)
   .then( res => {
       this.setState({ sent: true }, this.resetForm())
   })
