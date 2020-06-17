@@ -1,68 +1,102 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { Form, Button } from 'react-bootstrap';
 
-class Contact extends Component {
-  state = {
+const ContactForm = () => {
+  const [state, setState] = useState({
     name: '',
-    message: '',
     email: '',
-    sent: false,
-    buttonText: 'Send Message'
-}
+    subject: '',
+    message: ''
+  });
 
-formSubmit = (e) => {
-  e.preventDefault()
+  const [result, setResult] = useState(null);
 
-  this.setState({
-      buttonText: '...Sending'
-  })
+  const sendEmail = event => {
+    event.preventDefault();
+    axios
+      .post('/send', { ...state })
+      .then(response => {
+        setResult(response.data);
+        setState({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      })
+      .catch(() => {
+        setResult({
+          success: false,
+          message: 'Something went wrong. Try again later'
+        });
+      });
+  };
 
-  let data = {
-      name: this.state.name,
-      email: this.state.email,
-      message: this.state.message
-  }
-  
-  axios.post('https://resma.now.sh/', data)
-  .then( res => {
-      this.setState({ sent: true }, this.resetForm())
-  })
-  .catch( () => {
-    console.log('Message not sent')
-  })
-}
+  const onInputChange = event => {
+    const { name, value } = event.target;
 
-resetForm = () => {
-  this.setState({
-      name: '',
-      message: '',
-      email: '',
-      buttonText: 'Message Sent'
-  })
-}
+    setState({
+      ...state,
+      [name]: value
+    });
+  };
 
-render() {
   return (
-    <div className="Contact">
-      <h2 className="Subtitle">Get In Touch:</h2>
-      <form className="form-group" onSubmit={(e) => this.formSubmit(e)}>
-        <label className="message Paragraph" htmlFor="message-input">Your Message</label>
-        <textarea onChange={e => this.setState({ message: e.target.value })} name="message" class="message-input" type="text" placeholder="Please write your message here" value={this.state.message} required />
-        <br/>
-        <label className="message-name Paragraph" htmlFor="message-name">Your Name</label>
-        <input onChange={e => this.setState({ name: e.target.value })} name="name" class="message-name" type="text" placeholder="Your Name" value={this.state.name} />
-        <br/>
-        <label className="message-email Paragraph" htmlFor="message-email">Your Email</label>
-        <input onChange={(e) => this.setState({ email: e.target.value })} name="email" class="message-email" type="email" placeholder="your@email.com" required value={this.state.email} />
-        <br/>
-        <div className="button--container">
-          <button type="submit" className="button Paragraph">{this.state.buttonText}</button>
-        </div>
+    <div>
+      {result && (
+        <p className={`${result.success ? 'success' : 'error'}`}>
+          {result.message}
+        </p>
+      )}
+      <form onSubmit={sendEmail}>
+        <Form.Group controlId="name">
+          <Form.Label>Full Name</Form.Label>
+          <Form.Control
+            type="text"
+            name="name"
+            value={state.name}
+            placeholder="Enter your full name"
+            onChange={onInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="text"
+            name="email"
+            value={state.email}
+            placeholder="Enter your email"
+            onChange={onInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="subject">
+          <Form.Label>Subject</Form.Label>
+          <Form.Control
+            type="text"
+            name="subject"
+            value={state.subject}
+            placeholder="Enter subject"
+            onChange={onInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="subject">
+          <Form.Label>Message</Form.Label>
+          <Form.Control
+            as="textarea"
+            name="message"
+            value={state.message}
+            rows="3"
+            placeholder="Enter your message"
+            onChange={onInputChange}
+          />
+        </Form.Group>
+        <Button type="submit">
+          Submit
+        </Button>
       </form>
     </div>
   );
-}
-}
+};
 
-export default Contact;
-
+export default ContactForm;
